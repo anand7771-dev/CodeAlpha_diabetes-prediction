@@ -2,6 +2,8 @@
 # 🩺 Disease Prediction System — ML-based Diabetes Risk Predictor
 
 > **Python · Scikit-learn · Random Forest · Streamlit**
+> 
+> 🌐 **Live Web Application:** [https://code-alpha-diabetes-prediction.vercel.app](https://code-alpha-diabetes-prediction.vercel.app)
 
 This project was developed during an internship at **Code Alpha** to predict the likelihood of **Diabetes** based on medical parameters using machine learning.
 
