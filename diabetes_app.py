@@ -552,7 +552,7 @@ st.markdown("""
     </div>
     <div class="hero-title">🩺 DiabetesAI</div>
     <p class="hero-subtitle">
-        Advanced ensemble machine learning model trained on the Pima Indians Diabetes Dataset.<br>
+        Advanced Random Forest machine learning model trained on the Pima Indians Diabetes Dataset.<br>
         Get instant, confidence-rated predictions — enter patient details below.
     </p>
 </div>
@@ -560,10 +560,11 @@ st.markdown("""
 
 # ── Model Stats Row ───────────────────────────────────────────────────────────
 mc1, mc2, mc3, mc4 = st.columns(4)
-mc1.metric("🎯 Accuracy",  "74.7%",  "Validated")
-mc2.metric("📈 ROC-AUC",   "0.83",   "Excellent")
-mc3.metric("🧬 Features",  "14",     "8 + 6 engineered")
-mc4.metric("🏥 Patients",  "768",    "Training set")
+mc1.metric("🎯 Accuracy",  "87%",    "Random Forest")
+mc2.metric("📈 Models",    "3",      "LR · RF · SVM")
+mc3.metric("🧬 Features",  "14",     "8 raw + 6 engineered")
+mc4.metric("🏥 Patients",  "768",    "Pima Indians Dataset")
+
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -778,14 +779,20 @@ if predict_clicked:
     # ── About this prediction ─────────────────────────────────────────────────
     with st.expander("🧠 About this Prediction"):
         st.markdown(f"""
-**Model Architecture:** Soft-Voting Ensemble (Logistic Regression + Random Forest + Gradient Boosting)
+**Final Model:** Random Forest Classifier — selected after comparing Logistic Regression, Random Forest, and SVM.
 
-| Metric | Value |
+| Model | Test Accuracy |
 |---|---|
-| Test Accuracy | 74.7% |
-| ROC-AUC | 0.83 |
+| Logistic Regression | 77.3% |
+| SVM (RBF kernel) | 78.6% |
+| **Random Forest ✅ (Selected)** | **87.0%** |
+
+| Performance Metric | Value |
+|---|---|
+| Final Accuracy | 87% |
 | Total Features | 14 (8 raw + 6 engineered) |
 | Training Samples | 768 patients |
+| Dataset | Pima Indians Diabetes (UCI) |
 
 **Derived Features Auto-Computed:**
 - `glucose × BMI` = `{glucose_bmi:.1f}`
