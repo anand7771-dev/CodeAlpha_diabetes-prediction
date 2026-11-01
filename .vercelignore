@@ -1,0 +1,8 @@
+# Ignore Python files and requirements from Vercel deployment
+requirements.txt
+pyproject.toml
+Pipfile
+Pipfile.lock
+*.py
+*.pkl
+*.ipynb
